@@ -17,6 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/events.js", "src/components/Header/HeaderPage.jsx", "src/components/EventList.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/events.js", "src/components/Header/HeaderPage.jsx", "src/components/EventList.tsx"],
   "exclude": ["node_modules"]
 }

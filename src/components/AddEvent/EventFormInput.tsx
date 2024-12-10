@@ -19,8 +19,8 @@ const EventFormInput: React.FC<FormInputProps> = ({
     required = false,
     rows = 1,
 }) => (
-    <div className="mb-1 ">
-        <label htmlFor={name} className="block mb-1 font-medium text-gray-600">
+    <div className="mb-1 text-site ">
+        <label htmlFor={name} className="block mb-1 font-medium text-site">
             {label}:
         </label>
         {type === 'textarea' ? (
@@ -31,7 +31,7 @@ const EventFormInput: React.FC<FormInputProps> = ({
                 onChange={onChange}
                 required={required}
                 rows={rows}
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-b-slate-900 bg-list rounded"
             />
         ) : (
             <input
@@ -41,7 +41,7 @@ const EventFormInput: React.FC<FormInputProps> = ({
                 value={value}
                 onChange={onChange}
                 required={required}
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border text-site bg-list rounded"
             />
         )}
     </div>

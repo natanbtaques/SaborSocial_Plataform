@@ -16,6 +16,23 @@
 
 body {
   color: var(--foreground);
-  background: #332828;
+  background: #263238;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.bg-event {
+  background-color: #37474F;
+}
+.bg-list{
+  background-color: #667881;
+}
+
+.text-site{
+  color:#ECEFF1 ;
+}
+
+.iconsNbuttons{
+  color: white;
+  background-color: #FF7043;
 }
