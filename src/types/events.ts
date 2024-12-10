@@ -7,5 +7,7 @@ interface EventData {
     description: string;
     ong: string;
     validationcode: number;
+    foodtype: string;
+    kg: number;
   }
 export default  EventData ;
