@@ -3,6 +3,7 @@
 import { useState } from "react";
 import EventData from "../../types/events";
 import EventFormInput from "./EventFormInput";
+import handlerEvent from "@/pages/api/events";
 
 interface AddEventProps {
   onAddEvent?: (event: EventData) => void; // Define a tipagem da função recebida via props
@@ -13,7 +14,7 @@ const AddEvent: React.FC<AddEventProps> = ({ onAddEvent }) => {
     name: "",
     date: "",
     person: "",
-    Identification: 0,
+    identification: 0,
     location: "",
     description: "",
     ong: "",
@@ -34,10 +35,19 @@ const AddEvent: React.FC<AddEventProps> = ({ onAddEvent }) => {
   };
 
   // Função de envio
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (onAddEvent) {
       onAddEvent(eventData); // Chama a função recebida via props
+      
+      const response = await fetch('http://localhost:7292/api/Eventos', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        //body: JSON.stringify(eventData)
+      });
+      console.log(response);
     } else {
       console.error("onAddEvent is not defined");
     }
@@ -45,7 +55,7 @@ const AddEvent: React.FC<AddEventProps> = ({ onAddEvent }) => {
       name: "",
       date: "",
       person: "",
-      Identification: 0,
+      identification: 0,
       location: "",
       description: "",
       ong: "",
@@ -109,8 +119,8 @@ const AddEvent: React.FC<AddEventProps> = ({ onAddEvent }) => {
             onChange={handleInputChange}
             label="CPF/RG"
             type="text"
-            name="Identification"
-            value={eventData.Identification}
+            name="identification"
+            value={eventData.identification}
             required
           />
         </div>

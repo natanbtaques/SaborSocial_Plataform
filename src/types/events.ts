@@ -2,7 +2,7 @@ interface EventData {
     name: string;
     date: string;
     person: string;
-    Identification: number;
+    identification: number;
     location: string;
     description: string;
     ong: string;
