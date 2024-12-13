@@ -9,5 +9,6 @@ interface EventData {
     validationcode: number;
     foodtype: string;
     kg: number;
+    organization: string; 
   }
 export default  EventData ;

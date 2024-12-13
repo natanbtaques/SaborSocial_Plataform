@@ -21,6 +21,7 @@ const AddEvent: React.FC<AddEventProps> = ({ onAddEvent }) => {
     validationcode: 0,
     foodtype: "",
     kg: 0,
+    organization: ""
   });
 
   // Função para atualizar o estado com os dados do formulário
@@ -34,20 +35,40 @@ const AddEvent: React.FC<AddEventProps> = ({ onAddEvent }) => {
     }));
   };
 
+//   const callAPI = async () => {
+//     try {
+//         const response = await fetch('http://localhost:5240/api/Eventos');
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+//         const data = await response.json();
+//         console.log(data);
+//     } catch (error) {
+//         console.error('Erro ao chamar a API:', error);
+//     }
+// };
+
   // Função de envio
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (onAddEvent) {
       onAddEvent(eventData); // Chama a função recebida via props
       
-      const response = await fetch('http://localhost:7292/api/Eventos', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        //body: JSON.stringify(eventData)
-      });
-      console.log(response);
+      console.log(JSON.stringify(eventData));
+      const response = await fetch('http://localhost:5240/api/Eventos', {
+      
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(eventData), // Certifique-se de que 'eventData' corresponde ao DTO esperado
+      
+      
+      });      
+
+      console.log(await response.json());
+
     } else {
       console.error("onAddEvent is not defined");
     }
@@ -62,10 +83,12 @@ const AddEvent: React.FC<AddEventProps> = ({ onAddEvent }) => {
       validationcode: 0,
       foodtype: "",
       kg: 0,
+      organization: ""
     });
   };
 
   return (
+    
     <form
       onSubmit={handleSubmit} // Vinculando o envio do formulário à função handleSubmit
       className="p-6 max-w-lg my-auto mx-auto bg-event rounded shadow-md text-gray-700 w-full"
@@ -79,6 +102,14 @@ const AddEvent: React.FC<AddEventProps> = ({ onAddEvent }) => {
         type="text"
         name="name"
         value={eventData.name}
+        onChange={handleInputChange}
+        required
+      />
+       <EventFormInput
+        label="Organizacao"
+        type="text"
+        name="organization"
+        value={eventData.organization}
         onChange={handleInputChange}
         required
       />
@@ -181,8 +212,9 @@ const AddEvent: React.FC<AddEventProps> = ({ onAddEvent }) => {
         className="w-full p-2 iconsNbuttons text-site rounded hover:bg-orange-600 duration-500"
       >
         Adicionar Evento
-      </button>
+      </button>      
     </form>
+    
   );
 };
 
