@@ -20,6 +20,7 @@ const AddEvent: React.FC<AddEventProps> = ({ onAddEvent }) => {
     validationcode: 0,
     foodtype: "",
     kg: 0,
+    organization: "",
   });
 
   // Função para atualizar o estado com os dados do formulário
@@ -52,6 +53,7 @@ const AddEvent: React.FC<AddEventProps> = ({ onAddEvent }) => {
       validationcode: 0,
       foodtype: "",
       kg: 0,
+      organization: "",
     });
   };
 
