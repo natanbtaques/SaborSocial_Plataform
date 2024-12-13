@@ -3,11 +3,13 @@ import { useRouter } from 'next/router'; // Usando useRouter do Next.js para nav
 import Image from 'next/image';
 
 
-const Login = ({ onSwitchToRegister }: { onSwitchToRegister: () => void }) => {
+const LogOn = ({ onSwitchToLogin }: { onSwitchToLogin: () => void }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
     const [error, setError] = useState(''); // Para armazenar mensagens de erro
     const [loading, setLoading] = useState(false); // Para controlar o estado de carregamento
+    const [foodProvider, setFoodprovider] = useState('')
     const router = useRouter(); // hook do Next.js para navegação
 
     const handleLogin = async () => {
@@ -15,7 +17,7 @@ const Login = ({ onSwitchToRegister }: { onSwitchToRegister: () => void }) => {
         setError(''); // Limpa qualquer erro anterior
 
         try {
-            const response = await fetch('https://your-api-endpoint.com/login', {
+            const response = await fetch('https://your-api-endpoint.com/logon', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -52,13 +54,33 @@ const Login = ({ onSwitchToRegister }: { onSwitchToRegister: () => void }) => {
 
     return (
         <div className="flex items-center justify-center mt-20"> {/* Garante que a div ocupe toda a tela e centraliza */}
-            <div className=" bg-slate-800 p-8 text-site rounded-lg shadow-md"> {/* Definindo largura máxima para o formulário */}
-                <div className="flex justify-center mb-4"> {/* Centraliza a imagem */}
-                    <Image src="/images/logo.png" alt="Login Image" width={100} height={100} />
-                </div>
-                <h2 className="mb-5 text-center text-xl">Bem-vindo(a)</h2>
+            <div className=" bg-slate-800 p-10 text-site rounded-lg shadow-md"> {/* Definindo largura máxima para o formulário */}
+
+                <h2 className="mb-5 text-center text-xl">Cadastro</h2>
                 <form onSubmit={handleSubmit} className="flex flex-col items-center">
                     {error && <div className="mb-4 text-red-500">{error}</div>} {/* Exibe a mensagem de erro */}
+                    <div className="mb-4 w-full">
+                        <label className="block mb-1">Nome</label>
+                        <input
+                            type="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                            className="w-full p-1 rounded border border-gray-300"
+                            placeholder="Nome do Responsável"
+                        />
+                    </div>
+                    <div className="mb-4 w-full">
+                        <label className="block mb-1">Nome do Restaurante ou Evento</label>
+                        <input
+                            type="name"
+                            value={foodProvider}
+                            onChange={(e) => setFoodprovider(e.target.value)}
+                            required
+                            className="w-full p-1 rounded border border-gray-300"
+                            placeholder="Nome do Responsável"
+                        />
+                    </div>
                     <div className="mb-4 w-full">
                         <label className="block mb-1">Email:</label>
                         <input
@@ -66,7 +88,7 @@ const Login = ({ onSwitchToRegister }: { onSwitchToRegister: () => void }) => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            className="w-full p-2 rounded border border-gray-300"
+                            className="w-full p-1 rounded border border-gray-300"
                             placeholder="Digite seu email"
                         />
                     </div>
@@ -81,18 +103,30 @@ const Login = ({ onSwitchToRegister }: { onSwitchToRegister: () => void }) => {
                             placeholder="Digite sua senha"
                         />
                     </div>
+                    <div className="mb-4 w-full">
+                        <label className="block mb-1">Repita sua senha</label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            className="w-full p-2 rounded border border-gray-300"
+                            placeholder="Digite novamente senha"
+                        />
+                    </div>
                     <button
                         type="submit"
+                        onClick={onSwitchToLogin}
                         className="w-full p-2 rounded bg-orange-600 text-white cursor-pointer"
                         disabled={loading} // Desabilita o botão enquanto carrega
                     >
-                        {loading ? 'Carregando...' : 'Login'}
+                        {loading ? 'Carregando...' : 'Cadastrar'}
                     </button>
-                    <a onClick={onSwitchToRegister} className="mt-4 bg-text hover:underline cursor-pointer">Cadastrar</a>
+
                 </form>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default LogOn;

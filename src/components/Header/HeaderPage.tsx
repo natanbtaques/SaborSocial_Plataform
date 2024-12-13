@@ -22,7 +22,19 @@ const HeaderPage: React.FC<HeaderPageProps> = ({ isLoginPage }) => {
                     <h1 className="ml-3 text-xl font-semibold text-white">Sabor Social</h1>
                 </div>
 
-                {!isLoginPage && <FaSignOutAlt className="cursor-pointer text-white text-2xl" />}
+                {!isLoginPage &&
+
+                    <div className='flex space-x-10'>
+                        <p className="w-8 h-8 mt-3 rounded-full object-cover bg-white"></p>
+                        <div>
+                            <p>name</p>
+                            <p>gmail</p>
+                        </div>
+                        <FaSignOutAlt
+                            className="cursor-pointer text-white text-2xl mt-3"
+                            onClick={() => window.location.href = 'http://localhost:3000/login'}
+                        />
+                    </div>}
             </header>
         </div>
     );
