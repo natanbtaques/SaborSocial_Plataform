@@ -1,28 +1,52 @@
+# SaborSocial_Plataform
 
-## Getting Started
+SaborSocial_Plataform is a project developed with React, Tailwind CSS, Node.js, and MongoDB. This project is a platform that allows users to share and discover new recipes, interact with other users, and manage their own recipe collections.
 
-First, run the development server:
+## Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **React**: JavaScript library for building user interfaces.
+- **Tailwind CSS**: Utility-first CSS framework for rapid and efficient styling.
+- **Node.js**: JavaScript runtime for building server-side applications.
+- **MongoDB**: NoSQL database for storing user data and recipes.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To run this project locally, follow the steps below:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:natanbtaques/SaborSocial_Plataform.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd SaborSocial_Plataform
+   ```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To deploy this project, follow the steps below:
 
+1. Set up a hosting platform (e.g., Vercel, Heroku).
+2. Connect your GitHub repository to the hosting platform.
+3. Configure the necessary environment variables.
+4. Click "Deploy".
 
+## Usage
 
-## 
+After starting the development server, you can access the application at `http://localhost:3000`. Explore the platform to discover new recipes, interact with other users, and manage your own recipe collections.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact
+
+For more information, please contact via email: natanbtaques@gmail.com
