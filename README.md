@@ -1,6 +1,6 @@
 # SaborSocial_Plataform
 
-SaborSocial_Plataform is a project developed with React, Tailwind CSS, Node.js, and MongoDB. This project is a platform that allows users to share and discover new recipes, interact with other users, and manage their own recipe collections.
+SaborSocial_Plataform is a project developed with React, Tailwind CSS, Node.js, and MongoDB. This platform aims to connect NGOs, restaurants, and events that have surplus food with those in need, helping reduce food waste. Users can register to offer or request food donations, facilitating a collaborative network to promote sustainability and social impact.
 
 ## Technologies Used
 
